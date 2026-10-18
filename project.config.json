@@ -1,0 +1,23 @@
+{
+    "appid": "ttf8de8e6367c43da307",
+    "projectname": "Gold Minner",
+    "unity": {
+        "build": {
+            "webgl": "F:\\UnityProject\\maomidiaoyu\\Build\\webgl\\webgl_package-20260120_171914.zip",
+            "native": {
+                "il2cpp": "",
+                "apk": "",
+                "fullApk": ""
+            },
+            "instantGame": ""
+        },
+        "publishType": "2",
+        "starkSdkVersion": "Without StarkSDK",
+        "unityToolsVersion": null,
+        "unityEngineVersion": "2022.3.48f1c1",
+        "arch": "both"
+    },
+    "setting": {
+        "urlCheck": false
+    }
+}
