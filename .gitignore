@@ -82,3 +82,6 @@ crashlytics-build.properties
 /.workbuddy/
 /.trae/
 /.vsconfig
+
+# OPS 混淆器构建日志（每次构建都会变，不入库）
+/Assets/OPS/Obfuscator/Log/

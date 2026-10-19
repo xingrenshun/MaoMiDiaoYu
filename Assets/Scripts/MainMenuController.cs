@@ -29,13 +29,10 @@ public class MainMenuController : MonoBehaviour {
         SetButtonMusic();
         SetButtonSound();
 
-        if (PlayerPrefs.GetInt("MaxLevel") != 0)
+        // 商城入口按钮始终显示：首次打开也能直接进商城（看广告领金币、买道具）
+        if (buttonContinue != null)
         {
             buttonContinue.SetActive(true);
-        }
-        else
-        {
-            buttonContinue.SetActive(false);
         }
 
         if (Application.platform == RuntimePlatform.Android)
@@ -107,18 +104,9 @@ public class MainMenuController : MonoBehaviour {
     {
         audioSound.PlayOneShot(pressButton);
         int maxLevel = PlayerPrefs.GetInt("MaxLevel");
-        if(maxLevel == 0)
-        {
-            CGameManager.instance.levelCurrent = 1;
-            Play();
-        }
-        else
-        {
-            CGameManager.instance.levelCurrent = maxLevel + 1;
-            
-            // 使用异步加载场景
-            SceneManager.LoadSceneAsync("Shop");
-        }
+        // 首次打开（MaxLevel == 0）同样进入商城：可先看广告领金币、买道具，再从商城开始第一关
+        CGameManager.instance.levelCurrent = (maxLevel == 0) ? 1 : maxLevel + 1;
+        SceneManager.LoadSceneAsync("Shop");
     }
     
     public void Setting()

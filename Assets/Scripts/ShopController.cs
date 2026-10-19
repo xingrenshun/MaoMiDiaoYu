@@ -21,7 +21,11 @@ public class ShopController : MonoBehaviour {
         MakeInstance();
         RandomItem();
         DisplayItems(1, 1);
-        textLevel.text = "关卡 " + PlayerPrefs.GetInt("MaxLevel");
+        // 首次进商城时 MaxLevel 仍为 0，这里显示当前要挑战的关卡（第 1 关）
+        int currentLevel = (CGameManager.instance != null && CGameManager.instance.levelCurrent > 0)
+            ? CGameManager.instance.levelCurrent
+            : Mathf.Max(1, PlayerPrefs.GetInt("MaxLevel"));
+        textLevel.text = "关卡 " + currentLevel;
         SetTextMoney();
 	}
 	
